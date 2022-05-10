@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Row } from "reactstrap";
+import "./App.css";
+import "./Prompt";
+import Prompt from "./Prompt";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <Row>
+          <header>Fun with AI</header>
+        </Row>
+        <Row>
+          <Prompt />
+        </Row>
+      </Container>
     </div>
   );
 }
