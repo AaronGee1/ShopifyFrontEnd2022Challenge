@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import PageJumbotron from "./PageJumbotron";
 import "./Prompt";
@@ -7,6 +7,17 @@ import Responses from "./Responses";
 
 function App() {
   const [responseList, setResponseList] = useState([]);
+
+  useEffect(() => {
+    const savedList = JSON.parse(localStorage.getItem("responseList"));
+    if (savedList.length > 0) {
+      setResponseList(savedList);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("responseList", JSON.stringify(responseList));
+  }, [responseList]);
 
   return (
     <div className="App">
