@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Label, Input, Button, Col, Row } from "reactstrap";
 import env from "react-dotenv";
 
-const Prompt = () => {
+const Prompt = (props) => {
   const [prompt, setPrompt] = useState("");
 
   const sendPrompt = () => {
@@ -24,7 +24,13 @@ const Prompt = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        const response = {
+          prompt: prompt,
+          response: result["choices"][0]["text"],
+        };
+        props.setResponseList([...props.responseList, response]);
+      });
 
     setPrompt("");
   };
