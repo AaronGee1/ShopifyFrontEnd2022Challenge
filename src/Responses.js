@@ -1,14 +1,22 @@
 import { Container } from "reactstrap";
 
+import "./response.css";
+
 const Responses = (props) => {
   const responseList = props.responseList.map((response, index) => (
-    <li>
-      <Container key={index} className="bg-info mt-2 p-4">
+    <li className="mt-2 mb-2 fadeIn">
+      <Container
+        key={index}
+        className="p-4 rounded"
+        style={{ backgroundColor: "#eef8f9" }}
+      >
         <p>
-          <strong>Prompt:</strong> {response.prompt}
+          <strong>Prompt: </strong>
+          {response.prompt}
         </p>
         <p>
-          <strong>Response:</strong> {response.response}
+          <strong>Response: </strong>
+          {response.response}
         </p>
       </Container>
     </li>
