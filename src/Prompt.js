@@ -42,7 +42,7 @@ const Prompt = (props) => {
   return (
     <div>
       <Label className="text-left" for="prompt">
-        <strong>Enter prompt</strong>
+        <h3>Enter your prompt</h3>
       </Label>
       <Input
         id="prompt"

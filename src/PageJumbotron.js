@@ -1,4 +1,4 @@
-import { Media, Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 const PageJumbotron = (props) => {
   return (
@@ -8,9 +8,9 @@ const PageJumbotron = (props) => {
         <Col xs="8">
           <h1 className="display-3">Fun with AI</h1>
           <hr className="my-2" />
-          <p className="lead">
+          <h2 className="lead">
             OpenAI GPT-3 AI generated responses from user written prompts
-          </p>
+          </h2>
         </Col>
         <Col xs="2" />
       </Row>

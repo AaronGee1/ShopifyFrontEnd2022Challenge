@@ -1,16 +1,22 @@
-import { Container, Row } from "reactstrap";
+import { Container } from "reactstrap";
 
 const Responses = (props) => {
   const responseList = props.responseList.map((response, index) => (
-    <Container key={index} className="bg-info mt-2 p-4">
-      <Row>Prompt: {response.prompt}</Row>
-      <Row>Response: {response.response}</Row>
-    </Container>
+    <li>
+      <Container key={index} className="bg-info mt-2 p-4">
+        <p>
+          <strong>Prompt:</strong> {response.prompt}
+        </p>
+        <p>
+          <strong>Response:</strong> {response.response}
+        </p>
+      </Container>
+    </li>
   ));
   return (
     <div>
-      <strong>Responses</strong>
-      {responseList}
+      <h3>Responses</h3>
+      <ol className="list-unstyled">{responseList}</ol>
     </div>
   );
 };
