@@ -29,7 +29,7 @@ const Prompt = (props) => {
           prompt: prompt,
           response: result["choices"][0]["text"],
         };
-        props.setResponseList([...props.responseList, response]);
+        props.setResponseList([response, ...props.responseList]);
       });
 
     setPrompt("");
