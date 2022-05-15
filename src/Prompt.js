@@ -4,6 +4,7 @@ import env from "react-dotenv";
 
 const Prompt = (props) => {
   const [prompt, setPrompt] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const sendPrompt = () => {
     const data = {
@@ -14,7 +15,7 @@ const Prompt = (props) => {
       frequency_penalty: 0.0,
       presence_penalty: 0.0,
     };
-
+    setLoading(true);
     fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
       method: "POST",
       headers: {
@@ -30,6 +31,7 @@ const Prompt = (props) => {
           response: result["choices"][0]["text"],
         };
         props.setResponseList([response, ...props.responseList]);
+        setLoading(false);
       });
 
     setPrompt("");
@@ -55,9 +57,15 @@ const Prompt = (props) => {
       <Row>
         <Col xs="11"></Col>
         <Col xs="1">
-          <Button onClick={sendPrompt} className="mt-2" color="primary">
-            Submit
-          </Button>
+          {loading ? (
+            <div className="spinner-border text-primary mt-2" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            <Button onClick={sendPrompt} className="mt-2" color="primary">
+              Submit
+            </Button>
+          )}
         </Col>
       </Row>
     </div>
