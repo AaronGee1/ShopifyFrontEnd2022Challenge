@@ -4,13 +4,14 @@ import PageJumbotron from "./PageJumbotron";
 import "./Prompt";
 import Prompt from "./Prompt";
 import Responses from "./Responses";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [responseList, setResponseList] = useState([]);
 
   useEffect(() => {
     const savedList = JSON.parse(localStorage.getItem("responseList"));
-    if (savedList.length > 0) {
+    if (savedList !== null && savedList.length > 0) {
       setResponseList(savedList);
     }
   }, []);
