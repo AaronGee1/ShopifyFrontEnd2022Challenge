@@ -21,8 +21,6 @@
     "build": "react-dotenv && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r git@github.com:AaronGee1/ShopifyFrontEnd2022Challenge.git",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production"
   },
@@ -50,7 +48,6 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
-    "gh-pages": "^4.0.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
   }
